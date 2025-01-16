@@ -5,7 +5,7 @@ name: 离线版服务端制作
 on:
   push:
     branches:
-      - main # 或者你使用的其他分支名称
+      - main 
   pull_request:
     branches:
       - main
@@ -16,25 +16,25 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
-    - name: Checkout repository
+    - name: 检查仓库
       uses: actions/checkout@v3
 
-    - name: Set up JDK 17
+    - name: 设置java
       uses: actions/setup-java@v3
       with:
         java-version: '21'
         distribution: 'temurin'
 
-    - name: Run se.jar
+    - name: 制作服务端文件
       run: |
-        java -jar se.jar
+        java -jar server.jar
 
-    - name: Zip application files
+    - name: 打包，喵！
       run: |
         zip -r a.zip . -x ".git/*" 
 
     - name: Upload a.zip as an artifact
       uses: actions/upload-artifact@v3
       with:
-        name: 服务端.zip # 制品的名字
-        path: a.zip # 要上传的文件路径
+        name: 服务端.zip 
+        path: a.zip 
