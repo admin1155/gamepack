@@ -28,17 +28,17 @@ jobs:
     - name: 制作服务端文件
       run: |
         java -jar server.jar
-    - name: 调试
-    - run: |
-        ls -la .fabric
+
     # - name: Zip application files into 服务端.zip
     #   run: |
     #     zip -r 服务端.zip . -x ".git/*"
 
     - name: Upload artifact
-      uses: actions/upload-artifact@v3
+      uses: actions/upload-artifact@v4.6.0
       with:
         name: 服务端
         path: |
-              ./*
-              ./.fabric/**
+          ./*
+          !.git
+          !.github
+        include-hidden-files: true
