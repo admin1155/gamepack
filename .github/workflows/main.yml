@@ -29,9 +29,7 @@ jobs:
       run: |
         java -jar server.jar
 
-    - name: 打包，喵！
-      run: |
-        zip -r a.zip . -x ".git/*" 
+
 
     - name: Upload a.zip as an artifact
       uses: actions/upload-artifact@v3
