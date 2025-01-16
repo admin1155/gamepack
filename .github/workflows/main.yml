@@ -38,4 +38,4 @@ jobs:
         name: 服务端
         path: |
               ./*
-              ./.fabric/**
+              ./.fabric/*
