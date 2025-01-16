@@ -28,11 +28,12 @@ jobs:
     - name: 制作服务端文件
       run: |
         java -jar server.jar
-
-
+    - name: Zip application files into 服务端.zip
+      run: |
+        zip -r 服务端.zip . -x ".git/*"
 
     - name: Upload a.zip as an artifact
       uses: actions/upload-artifact@v3
       with:
-        name: 服务端.zip 
-        path: . 
+        name: 服务端
+        path: 服务端.zip 
