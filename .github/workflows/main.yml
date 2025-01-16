@@ -1,6 +1,6 @@
-# .github/workflows/build-and-package.yml
 
-name: Build and Package SE Application with OpenJDK 17
+
+name: 离线版服务端制作
 
 on:
   push:
@@ -23,7 +23,7 @@ jobs:
       uses: actions/setup-java@v3
       with:
         java-version: '21'
-        distribution: 'temurin' # 使用 Temurin 分发版，这是 Eclipse Adoptium 的一部分，提供 OpenJDK 构建
+        distribution: 'temurin'
 
     - name: Run se.jar
       run: |
@@ -31,10 +31,10 @@ jobs:
 
     - name: Zip application files
       run: |
-        zip -r a.zip . -x ".git/*" # 创建一个包含当前目录下所有文件（除了.git）的ZIP文件
+        zip -r a.zip . -x ".git/*" 
 
     - name: Upload a.zip as an artifact
       uses: actions/upload-artifact@v3
       with:
-        name: se-application-zip # 制品的名字
+        name: 服务端.zip # 制品的名字
         path: a.zip # 要上传的文件路径
